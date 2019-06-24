@@ -7,8 +7,8 @@ const  morgan  =  require('morgan');
 const  app  =  express();
 
 const authRouter = require('./routes/auth/auth');
-//where authRouter is imported
-app.use('/auth', authRouter);
+const connection = require('./helpers/db');
+
 
 // I set up the application
 app.use(morgan('dev'));
@@ -16,6 +16,8 @@ app.use(bodyParser.urlencoded({ extended:  false }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname  +  '/public'));
 
+//where authRouter is imported
+app.use('/auth', authRouter);
 // I implement the API part
 app.get("/", (req,res) => {
     res.send("youhou");
