@@ -17,6 +17,7 @@ class SignUp extends Component {
     this.setState({[e.target.name]: e.target.value});
   }
 
+
   handleSubmit = (e) => {
     fetch("/auth/signup",
     {
@@ -28,8 +29,8 @@ class SignUp extends Component {
     })
     .then(res  =>  res.json())
     .then(
-          res  =>  this.setState({"flash":  res.flash}),
-          err  =>  this.setState({"flash":  err.flash})
+          res  =>  this.setState({flash:  res.flash}),
+          err  =>  this.setState({flash:  err.flash})
     )
     console.log(`information submitted: ${JSON.stringify(this.state)}`);
     e.preventDefault();
@@ -38,7 +39,9 @@ class SignUp extends Component {
   render(){
     return(
       <div>
+        <div className={this.state.flash === "User has been signed up!" ? 'green': 'red'}>
         <p>{this.state.flash}</p>
+        </div>
         <h1>Sign Up</h1>
         <form action="POST" onSubmit={this.handleSubmit}>
           <input type="email" name="email" onChange={this.updateField} placeholder='example@example.com'/>
