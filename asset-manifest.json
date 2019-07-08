@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/HomersOdyssey/static/css/main.948adf86.chunk.css",
+    "main.js": "/HomersOdyssey/static/js/main.f3bc8bed.chunk.js",
+    "main.js.map": "/HomersOdyssey/static/js/main.f3bc8bed.chunk.js.map",
+    "runtime~main.js": "/HomersOdyssey/static/js/runtime~main.aa019dd8.js",
+    "runtime~main.js.map": "/HomersOdyssey/static/js/runtime~main.aa019dd8.js.map",
+    "static/js/2.dc8839ce.chunk.js": "/HomersOdyssey/static/js/2.dc8839ce.chunk.js",
+    "static/js/2.dc8839ce.chunk.js.map": "/HomersOdyssey/static/js/2.dc8839ce.chunk.js.map",
+    "index.html": "/HomersOdyssey/index.html",
+    "precache-manifest.de26a53614e56985947b0bf3cffbcbae.js": "/HomersOdyssey/precache-manifest.de26a53614e56985947b0bf3cffbcbae.js",
+    "service-worker.js": "/HomersOdyssey/service-worker.js",
+    "static/css/main.948adf86.chunk.css.map": "/HomersOdyssey/static/css/main.948adf86.chunk.css.map"
+  }
+}
