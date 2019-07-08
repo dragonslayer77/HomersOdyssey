@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Snackbar from '@material-ui/core/Snackbar';
+import { Link, Redirect } from 'react-router-dom';
 
 
 class SignUp extends Component {
@@ -14,7 +15,9 @@ class SignUp extends Component {
       name: 'jon',
       lastname: 'doe',
       flash: '',
-      submitted: false
+      open: false,
+      redirectRef: false
+
     }
   }
   
@@ -42,29 +45,41 @@ class SignUp extends Component {
     .then(
       res  =>  this.setState({
         flash:  res.flash,
-        submitted: true
+        open: true,
+        redirectRef: true
       }),
       err  =>  this.setState({
         flash:  err.flash,
-        submitted: true
+        open: true,
+        redirectRef: true
       })
       )
       console.log(`information submitted: ${JSON.stringify(this.state)}`);
       e.preventDefault();
     }
 
-    handleClose = () => {
-      this.setState({submitted: false});
-    };
+    handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+          return;
+        }
+
+      this.setState({open: false});
+
+  }
     
     render(){
+      const redirectRef = this.state.redirectRef;
+        if(redirectRef===true){
+            return <Redirect to="/" />
+        }
       return(
         <div>
         <div className={this.state.flash === "User has been signed up!" ? 'green': 'red'}>
           <Snackbar
-              open={this.state.submitted}
+              open={this.state.open}
               onClose={this.handleClose}
-              // TransitionComponent={this.state.submitted}
+              autoHideDuration={6000}
+              // TransitionComponent={this.state.open}
               ContentProps={{
                 'aria-describedby': 'message-id',
               }}
@@ -111,7 +126,13 @@ class SignUp extends Component {
           <Button 
             color="secondary" 
             type="submit" 
-            value='Submit'>Submit</Button>
+            value='Submit'>Submit
+          </Button>
+          <br/>
+          <p>Already have an account?</p>
+          <Button color="secondary">
+             <Link className="linkButton" to="/signin">Sign In</Link>
+          </Button>
 
         </form>
       </div>
