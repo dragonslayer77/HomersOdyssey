@@ -6,3 +6,8 @@
 .red{
   background-color: red;
 }
+
+.linkButton{
+  text-decoration: none;
+  color: #f91f57;
+}
